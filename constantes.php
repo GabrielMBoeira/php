@@ -15,9 +15,13 @@ echo "<hr>";
 
 define("TIMES", ['gremio', 'flamengo']);
 
-echo TIMES[0];
+echo TIMES[1];
 
+var_dump(TIMES);
 
-
+function exibeNome() {
+    echo NOME;
+}
+exibeNome();
 
 
