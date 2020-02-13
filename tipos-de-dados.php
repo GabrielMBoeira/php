@@ -74,7 +74,7 @@ echo "<hr>";
 
 /*************** Especiais ****************/
 
-NULL
+
 $cidade = NULL;
 var_dump($cidade);
 
