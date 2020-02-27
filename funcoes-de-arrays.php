@@ -64,8 +64,46 @@ echo "<hr>";
 $frutas = array("Uva", "Laranja", "Maçã");
 print_r($frutas);
 echo "<br>";
-array_unshift($frutas, "Manga", "Acerola", "Morango"); //essa funçao serve para adicionar elementos no array.
+array_unshift($frutas, "Manga", "Acerola", "Morango"); //essa funçao serve para adicionar elementos no inicio do array.
 print_r($frutas);
+echo "<br>";
+array_push($frutas, "Melancia"); // essa função adiciona elementos no final do array.
+print_r($frutas);
+
+echo "<hr>";
+
+$keys = array("campeão", "vice", "terceiro");
+$equipes = array("flamengo","vasco","botafogo");
+
+$times = array_combine($keys, $equipes); //combina dois arrays chave e valor;
+print_r($times);
+
+echo "<hr>";
+
+$soma = array(5,8,2,5);
+$total = array_sum($soma); // soma os números dentro do array.  = 20.
+echo $total;
+
+echo "<hr>";
+
+$data = "30/02/2018";
+$novaData = explode("/",$data); //Tansforma String em array. 
+print_r($novaData);
+
+echo "<br>";
+
+$frase = "Meu nome não é Jhony";
+$array = explode(' ', $frase); //Transformou String em array. 
+print_r($array);
+
+echo "<hr>";
+
+$pessoas = array("Carlos", "André", "Letícia", "Pedro");
+$string = implode(", ", $pessoas); // essa função transforma array em String. 
+echo $string;
+
+
+
 
 
 
