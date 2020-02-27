@@ -60,9 +60,15 @@ foreach($pessoa as $indice => $valor) {
 echo "<br>";
 
 //ARRAY MULTIDIMENSIONAL
-$times = array("cariocas" => array("campeao" => "flamengo", "vice" => "vasco", "terceiro" => "bahia"),
+$times = array("cariocas" => array("campeao" => "flamengo", "vice" => "vasco", "terceiro" => "botafogo"),
                "paulistas" => array("Palmeiras", "São Paulo", "Santos"),
                "baianos" => array("vitoria", "bahia", "itabuna"));
 
  
-echo $times["baianos"][1];
+echo $times["paulistas"][1];
+
+echo "<hr>";
+
+foreach ($times["paulistas"] as $indice => $valor) {
+    echo $indice.": ".$valor."<br>";
+}
