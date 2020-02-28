@@ -11,4 +11,4 @@ $cores = array("Verde", "Amarelo", "Azul");
 
 foreach ($cores as $indice => $valor): //Percorre o array e atribui na variável valor. 
     echo $indice."-".$valor."<br>";
-endforeach;
+endforeach; 
