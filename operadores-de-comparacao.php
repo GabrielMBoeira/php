@@ -12,7 +12,7 @@
 // > maior
 // <= menos igual
 // >= maior igual
-// <=> space ship
+// <=> space ship:  Retorno o lado 1 ou -1  .. se for igual retorna 0
 
 
 echo var_dump(20 <=> 30); // lado esquerdo menor => -1 
