@@ -7,7 +7,7 @@
     round => arredonda para baixo ou para cima
     ceil => arredonda somente para cima
     floor => arredonda somente para baixo
-    rand
+    rand => fazer sorteios
 */
 
 $db = 1234.56;
@@ -23,3 +23,6 @@ echo"<br>";
 echo ceil(8.1); //9
 echo"<br>";
 echo floor(8.9); //8
+echo "<hr>";
+echo rand(1, 20);
+

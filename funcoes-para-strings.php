@@ -53,7 +53,7 @@ echo $novoTexto;
 
 echo "<hr>";
 
-echo strpos($texto, "copa");
+echo strpos($texto, "copa"); //String 39
 
 
 
