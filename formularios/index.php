@@ -5,10 +5,10 @@
 /*Sanitizações
 Funções (filter_input - filter_var)
 
-FILTER_SANITIZE_SPECIAL_CHARS
-FILTER_SANITIZE_INT
-FILTER_SANITIZE_EMAIL
-FILTER_VALIDATE_URL
+FILTER_SANITIZE_SPECIAL_CHARS -> Deixa escapar todos os códigos html sem criar botão, etc.. 
+FILTER_SANITIZE_NUMBER_INT -> Limpa todo o texto e deixa somente o numero inteiro. 
+FILTER_SANITIZE_EMAIL -> Limpa os caracteres especiais dentro do email (Deixando somente o email).
+FILTER_VALIDATE_URL -> Limpa os caracteres especiais dentro da url (Deixando somente a url).
 */
 ?>
 
@@ -17,26 +17,25 @@ FILTER_VALIDATE_URL
         //Array de erros
         $erros = array();
         
-        //Validações
-        if(!$idade = filter_input(INPUT_POST, 'idade', FILTER_VALIDATE_INT)) {
-            $erros[] = "Idade precisa ser um inteiro.";
+        //Sanitize
+        $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_SPECIAL_CHARS); 
+
+        $idade = filter_input(INPUT_POST, "idade", FILTER_SANITIZE_NUMBER_INT);
+        if(!filter_var($idade, FILTER_SANITIZE_NUMBER_INT)){
+            $erros[] = "Idade precisa ser um inteiro";
         }
 
-        if(!$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-            $erros[] = "Email inválido.";
-        }
+        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+            if(!filter_var($email, FILTER_SANITIZE_EMAIL)){
+                $erros[] = "Email inválido";
+            }
 
-        if(!$peso = filter_input(INPUT_POST, 'peso', FILTER_VALIDATE_FLOAT)) {
-            $erros[] = "Peso precisa ser um float.";
-        }
-
-        if(!$ip = filter_input(INPUT_POST, 'ip', FILTER_VALIDATE_IP)) {
-            $erros[] = "Ip inválido.";
-        }
-
-        if(!$url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL)) {
-            $erros[] = "URL inválida.";
-        }
+        $url = filter_input(INPUT_POST, "url", FILTER_SANITIZE_URL);
+            if(!filter_var($url, FILTER_VALIDATE_URL)) { 
+                $erros[] = "URL Inválida.";
+            }
+        
+         
 
         //Exibindo mensagens
         if(!empty($erros)) {
