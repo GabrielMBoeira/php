@@ -2,12 +2,13 @@
 <body>
 
 <?php
-/*Sanitizações
+/*Validações
 Funções (filter_input - filter_var)
 
-FILTER_SANITIZE_SPECIAL_CHARS
-FILTER_SANITIZE_INT
-FILTER_SANITIZE_EMAIL
+FILTER_VALIDATE_INT
+FILTER_VALIDATE_EMAIL
+FILTER_VALIDATE_FLOAT
+FILTER_VALIDATE_IP
 FILTER_VALIDATE_URL
 */
 ?>
@@ -51,9 +52,10 @@ FILTER_VALIDATE_URL
 ?>
 
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        Nome: <input type="text" name="nome"><br>
         Idade: <input type="text" name="idade"><br>
         Email: <input type="email" name="email"><br>
+        Peso: <input type="text" name="peso"><br>
+        IP: <input type="text" name="ip"><br>
         URL: <input type="text" name="url"><br>
         <button type="submit" name="enviar-formulario">Enviar</button>
     </form>
