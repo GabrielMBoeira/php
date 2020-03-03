@@ -10,8 +10,8 @@ session_start();
 //Botão enviar
     if(isset($_POST['btn-entrar'])) {
         $erros = array();
-        $login = mysqli_escape_string($connect, $_POST['login']);
-        $senha = mysqli_escape_string($connect, $_POST['senha']);
+        $login = mysqli_escape_string($connect, $_POST['login']); //limpar os inputs - Segurança
+        $senha = mysqli_escape_string($connect, $_POST['senha']); //limpar os inputs - Segurança
 
         if (empty($login) or empty($senha)) {
             $erros[] = "<li> Senha ou login não estão preenchidos </li>";
