@@ -1,12 +1,27 @@
 <?php
+//Session
+session_start();
+if (isset($_SESSION['mensagem'])): ?>
+
+    <script>
+        window.onload = function() {
+            M.toast({html: '<?php echo $_SESSION['mensagem'];?>'});
+                };
+    </script>
+
+<?php
+endif;
+
 // Header
 include_once 'includes/header.php';
 ?>
 
 <div class="row">
     <div class="col s12 m6 push-m3">
+
     <h3 class="light">Novo cliente</h3>
-        <form>
+
+        <form action="php-action/create.php" method="POST">
             <div class="input-field col s12">
                 <input type="text" name="nome" id="nome">   
                 <label for="nome">Nome</label>         
@@ -23,9 +38,10 @@ include_once 'includes/header.php';
                 <input type="text" name="idade" id="idade">   
                 <label for="idade">Idade</label>         
             </div>
-            <button type="submit" class="btn">Cadastrar</button>
-            <button type="submit" class="btn green">Lista de clientes</button>
+            <button type="submit" name="btn-cadastrar" class="btn">Cadastrar</button>
+            <a href="index.php" class="btn green">Lista de clientes</a>
         </form>
+
         </div>
 </div>
 
