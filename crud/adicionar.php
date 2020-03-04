@@ -1,19 +1,9 @@
 <?php
-//Session
-session_start();
-if (isset($_SESSION['mensagem'])): ?>
-
-    <script>
-        window.onload = function() {
-            M.toast({html: '<?php echo $_SESSION['mensagem'];?>'});
-                };
-    </script>
-
-<?php
-endif;
-
 // Header
 include_once 'includes/header.php';
+
+//Mensagem
+include_once 'includes/message.php';
 ?>
 
 <div class="row">
