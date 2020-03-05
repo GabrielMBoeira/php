@@ -27,6 +27,8 @@ include_once 'includes/message.php';
                 $sql = "SELECT * FROM clientes";
                 $resultado = mysqli_query($connect, $sql);
 
+                if (mysqli_num_rows($resultado) > 0):
+
                 while ($dados = mysqli_fetch_array($resultado)) :
                 ?>
                     <tr>
@@ -38,17 +40,16 @@ include_once 'includes/message.php';
                         <td><a href="#modal<?php echo $dados['id']; ?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>
 
                                             <!-- Modal Structure -->
-                    <div id="#modal<?php echo $dados['id']; ?>" class="modal">
+                    <div id="modal<?php echo $dados['id']; ?>" class="modal">
                         <div class="modal-content">
-                            <h4>Opa!</h4>
-                            <h3>Tem certeza que deseja excluir este cliente?</h3>
+                            <p>Opa!</p>
+                            <p>Tem certeza que deseja excluir este cliente?</p>
                         </div>
                         <div class="modal-footer">
-                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-
                             <form action="php-action/delete.php" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $dados['id']; ?>"> 
                                 <button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
                             </form>
                         </div>
                     </div>
@@ -56,6 +57,18 @@ include_once 'includes/message.php';
 
                 <?php
                 endwhile;
+                else:
+                ?>
+
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+
+                <?php
+                endif;
                 ?>
 
             </tbody>
